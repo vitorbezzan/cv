@@ -20,7 +20,7 @@ jobs:
       - name: install dependencies
         run: sudo apt-get update && sudo apt-get upgrade && sudo apt-get install pdftk
       - name: passwd_protect
-        run: pdftk ${{ env.DIR }}/${{ env.FILE }}.pdf output output.pdf owner_pw ${{secrets.CV_PASSWORD}} user_pw ${{secrets.CV_PASSWORD}}
+        run: pdftk ${{ env.DIR }}/${{ env.FILE }}.pdf output output.pdf owner_pw ${{secrets.CV_PASSWORD_OWNER}} user_pw ${{secrets.CV_PASSWORD}}
       - name: move
         run: mkdir -p github_artifacts && mv output.pdf ./github_artifacts/
       - name: Upload pdf as artifact
